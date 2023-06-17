@@ -110,7 +110,7 @@ def run(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description = 'Generate questions and save them to json file.')
 
-    parser.add_argument('-cmp','--checkpoint_model_path', type=str, metavar='', default="../../checkpoints/qg_vi_mt5_base_512_96_32_6_seed_42/model-epoch=03-val_loss=1.08.ckpt", required=False, help='Model folder checkpoint path.')
+    parser.add_argument('-cmp','--checkpoint_model_path', type=str, metavar='', default="../../checkpoints/qg/model-epoch=03-val_loss=1.08.ckpt", required=False, help='Model folder checkpoint path.')
 
     parser.add_argument('-mn','--model_name', type=str, metavar='', default="google/mt5-base", required=False, help='Model name.')
     parser.add_argument('-tn','--tokenizer_name', type=str, metavar='', default="google/mt5-base", required=False, help='Tokenizer name.')
