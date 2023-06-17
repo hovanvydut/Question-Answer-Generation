@@ -229,7 +229,7 @@ if __name__ == '__main__':
     parser.add_argument('-mli','--max_len_input', type=int, metavar='', default=512, required=False, help='Max len input for encoding.')
     parser.add_argument('-mlo','--max_len_output', type=int, metavar='', default=96, required=False, help='Max len output for encoding.')
 
-    parser.add_argument('-me','--max_epochs', type=int, default=4, metavar='', required=False, help='Number of max Epochs')
+    parser.add_argument('-me','--max_epochs', type=int, default=2, metavar='', required=False, help='Number of max Epochs')
     parser.add_argument('-bs','--batch_size', type=int, default=4, metavar='', required=False, help='Batch size.')
     parser.add_argument('-ptc','--patience', type=int, default=3, metavar='', required=False, help='Patience')
     parser.add_argument('-o','--optimizer', type=str, default='AdamW', metavar='', required=False, help='Optimizer')
