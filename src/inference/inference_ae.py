@@ -7,12 +7,12 @@ from transformers import (
 import argparse
 import pandas as pd
 import sys
-sys.path.append('../')
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from model.model_ae import AEModel
 from utils import currentdate
 import time
-import os
 import json
 import torch
 

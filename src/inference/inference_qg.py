@@ -7,7 +7,7 @@ from transformers import (
 import argparse
 import pandas as pd
 import sys
-sys.path.append('../')
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from model.model_qg import QGModel
 from utils import currentdate
