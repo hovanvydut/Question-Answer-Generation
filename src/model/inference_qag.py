@@ -95,6 +95,7 @@ def run(args):
         print("1. Question Generation: ")
         print("2. Answer Extraction:")
         print("3. End to end question answer generation: ")
+        print("4. Thoat")
         mode = input(">>> ")
         mode = int(mode)
         if mode == 1:
@@ -104,9 +105,12 @@ def run(args):
         elif mode == 2:
             context = input(">> Nhap context: ")
             source_text = f"{AE_TAG} context: {context}"
-        else:
+        elif mode == 3:
             context = input(">> Nhap context: ")
             source_text = f"{QAG_TAG} context: {context}"
+        else:
+            print("Thoat....")
+            break
 
         st = time.time()
         # predict output
@@ -119,8 +123,7 @@ def run(args):
         print("---------------")
         print(generated)
         print("---------------")
-        code = input("Nhan phim q de thoat, nhap phim bat ki de tiep tuc: ")
-        print("---------------")
+
 
 
 
