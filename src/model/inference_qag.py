@@ -104,20 +104,22 @@ def run(args):
             context = input(">> Nhap context: ")
             source_text = f"{AE_TAG} context: {context}"
         else:
+            context = input(">> Nhap context: ")
             source_text = f"{QAG_TAG} context: {context}"
 
         st = time.time()
+        # predict output
         generated = generate(args, device, qgmodel, t5_tokenizer, source_text)
         et = time.time()
-        
         elapsed_time = et - st
         print('Execution time:', elapsed_time, 'seconds')
 
-        print("Ket qua: answer = ")
+        print("Ket qua:")
         print("---------------")
         print(generated)
         print("---------------")
-        code = input("Nhan phim q de thoat, nhap phim bat ki de tiep tuc")
+        code = input("Nhan phim q de thoat, nhap phim bat ki de tiep tuc: ")
+        print("---------------")
 
 
 
