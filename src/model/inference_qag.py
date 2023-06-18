@@ -96,6 +96,7 @@ def run(args):
         print("2. Answer Extraction:")
         print("3. End to end question answer generation: ")
         mode = input(">>> ")
+        mode = int(mode)
         if mode == 1:
             context = input(">> Nhap context: ")
             answer = input(">> nhap answer: ")
