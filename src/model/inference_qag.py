@@ -86,6 +86,9 @@ def run(args):
     # for loop
     source_text = ""
     code = ""
+    context = ""
+    answer = ""
+    source_text = ""
     while code != "q":
         print("===============")
         print("Vui long chon: ")
