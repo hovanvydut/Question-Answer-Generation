@@ -101,7 +101,7 @@ def run(args):
             context = input(">> Nhap context: ")
             answer = input(">> nhap answer: ")
             source_text = f"{QG_TAG} answer: {answer} context: {context}"
-        if mode == 2:
+        elif mode == 2:
             context = input(">> Nhap context: ")
             source_text = f"{AE_TAG} context: {context}"
         else:
