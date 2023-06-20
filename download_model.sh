@@ -1,0 +1,3 @@
+#! /bin/bash
+wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1h2Ab9HXLSKoj8wu2prl-VuIvUlaM0YIT' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1h2Ab9HXLSKoj8wu2prl-VuIvUlaM0YIT" -O model-epoch=01-val_loss=1.14.ckpt && rm -rf /tmp/cookies.txt
+mv model-epoch=01-val_loss=1.14.ckpt ./checkpoints/qag/
