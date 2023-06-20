@@ -17,6 +17,10 @@ class ReqData(BaseModel):
     answer: str
     num_return: int
 
+@app.get("/ping")
+async def ping():
+    return "Ok"
+
 @app.post("/predict")
 async def question_answer_generation(data: ReqData):
     source_text = ""
