@@ -11,13 +11,13 @@ import os
 sys.path.append("../")
 from utils import currentdate, QAG_TAG, QG_TAG, AE_TAG
 
-from model_ae import AEModel
+from model.model_qag import QAGModel
 from utils import currentdate
 import time
 import json
 import torch
 
-def generate(args, device, qgmodel: AEModel, tokenizer: T5Tokenizer,  context: str) -> str:
+def generate(args, device, qgmodel: QAGModel, tokenizer: T5Tokenizer,  context: str) -> str:
 
     source_encoding = tokenizer(
         context,
@@ -71,7 +71,7 @@ else:
     t5_model = T5ForConditionalGeneration.from_pretrained(params.model_name)
 
 checkpoint_model_path = params.checkpoint_model_path
-qgmodel = AEModel.load_from_checkpoint(checkpoint_model_path, hparams=params, t5model=t5_model, t5tokenizer=t5_tokenizer)
+qgmodel = QAGModel.load_from_checkpoint(checkpoint_model_path, hparams=params, t5model=t5_model, t5tokenizer=t5_tokenizer)
 
 qgmodel.freeze()
 qgmodel.eval()

@@ -1,2 +1,2 @@
 run:
-	uvicorn src.api.main:app --reload
+	cd ./src/api/ && uvicorn main:app --reload

@@ -1,6 +1,9 @@
 from typing import Union
 from fastapi import FastAPI
 from pydantic import BaseModel
+import sys
+import os
+sys.path.append("../")
 from inference import qgmodel, t5_tokenizer, generate, device, params
 from utils import QAG_TAG, QG_TAG, AE_TAG
 import time
