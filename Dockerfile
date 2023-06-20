@@ -2,18 +2,19 @@
 FROM pytorch/pytorch:1.13.1-cuda11.6-cudnn8-devel
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /home/vy/Question-Answer-Generation
 
 # Copy the necessary files to the container
 COPY requirements.txt .
-COPY your_custom_model.py .
-COPY pytorch_model.bin .
+COPY requirement-api.txt .
 
 # Install the required dependencies
 RUN pip install -r requirements.txt
+RUN pip install -r requirement-api.txt
 
-# Expose any necessary ports
-EXPOSE 8000
+COPY src/api .
+COPY checkpoints .
 
+RUN cd ./src/api/
 # Set the entry point command
-CMD ["python", "your_custom_model.py"]
+CMD ["uvicorn", "main:app", "--reload"]

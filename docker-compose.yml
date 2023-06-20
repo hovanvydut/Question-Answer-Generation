@@ -1,0 +1,11 @@
+version: "3"
+services:
+  mt5_model:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /home/vy/container_volume/checkpoints:/root/.cache/torch/hub/checkpoints/
+      - /home/vy/container_volume/qag:./checkpoints/qag
+    ports:
+      - "8000:8000"
