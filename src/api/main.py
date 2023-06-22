@@ -1,6 +1,7 @@
 from typing import Union
 from fastapi import FastAPI
 from pydantic import BaseModel
+from typing import Optional
 import sys
 import os
 import argparse
@@ -11,12 +12,12 @@ import time
 
 app = FastAPI()
 
-class ReqData():
+class ReqData(BaseModel):
     task: str
-    context: str
-    question: str
-    answer: str
-    num_return: int
+    context: Optional[str]
+    question: Optional[str]
+    answer: Optional[str]
+    num_return: Optional[int]
 
 class ReqAEData(BaseModel):
     context: str
