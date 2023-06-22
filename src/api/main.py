@@ -11,7 +11,7 @@ import time
 
 app = FastAPI()
 
-class ReqData(BaseModel):
+class ReqData():
     task: str
     context: str
     question: str
