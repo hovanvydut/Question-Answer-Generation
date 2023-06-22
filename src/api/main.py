@@ -101,7 +101,6 @@ def question_answer_generation(data: ReqData):
         custom_config["num_return_sequences"] = data.num_return
 
         custom_config = argparse.Namespace(**custom_config)
-        print(custom_config)
         st = time.time()
         generated = generate(custom_config, device, qgmodel, t5_tokenizer, source_text)
         et = time.time()
