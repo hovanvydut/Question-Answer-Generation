@@ -95,7 +95,7 @@ def question_answer_generation(data: ReqData):
         return {"error": "task id is invalid, must be QAG, EA, QG"}
     try:
         custom_config = params_dict.copy()
-        if data.num_return is not None or data.num_return <= 0:
+        if data.num_return is None or data.num_return <= 0:
             custom_config["num_return_sequences"] = min(data.num_return, custom_config["num_beams"])
         custom_config = argparse.Namespace(**custom_config)
         
