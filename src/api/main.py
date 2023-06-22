@@ -66,7 +66,8 @@ async def answer_extraction(data: ReqPipeData):
     dto1 = ReqData()
     dto1.task = AE_TAG
     dto1.context = data.context
-    answer_text:str = question_answer_generation(dto1)
+    dto1.num_return = 5
+    answer_text:str = question_answer_generation(dto1)["result"]
 
     answers = answer_text.split("<DIV>")
     answers = [x for x in answers if x != '']
@@ -79,7 +80,7 @@ async def answer_extraction(data: ReqPipeData):
         dto2.answer = answer
         dto2.num_return = 1
         question = question_answer_generation(dto2)
-        result.push({"question": question, "answer": answer})
+        result.append({"question": question, "answer": answer})
     
     return result
 
@@ -95,10 +96,12 @@ def question_answer_generation(data: ReqData):
         return {"error": "task id is invalid, must be QAG, EA, QG"}
     try:
         custom_config = params_dict.copy()
-        if data.num_return is None or data.num_return <= 0:
-            custom_config["num_return_sequences"] = min(data.num_return, custom_config["num_beams"])
+        if data.num_return is None:
+            data.num_return = 1
+        custom_config["num_return_sequences"] = data.num_return
+
         custom_config = argparse.Namespace(**custom_config)
-        
+        print(custom_config)
         st = time.time()
         generated = generate(custom_config, device, qgmodel, t5_tokenizer, source_text)
         et = time.time()
