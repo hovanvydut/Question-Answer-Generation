@@ -31,6 +31,9 @@ class ReqQAGData(BaseModel):
     context: str
     num_return: int
 
+class ReqPipeData(BaseModel):
+    context: str
+
 @app.get("/ping")
 async def ping():
     return "Ok"
@@ -58,7 +61,7 @@ async def answer_extraction(data: ReqQAGData):
     return question_answer_generation(dto)
 
 @app.post("/predict/pipeline")
-async def answer_extraction(data: ReqQAGData):
+async def answer_extraction(data: ReqPipeData):
     dto1 = ReqData()
     dto1.task = AE_TAG
     dto1.context = data.context
