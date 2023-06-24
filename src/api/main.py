@@ -44,6 +44,7 @@ async def answer_extraction(data: ReqAEData):
     dto = ReqData()
     dto.task = AE_TAG
     dto.context = data.context
+    dto.num_return = data.num_return
     return question_answer_generation(dto)
 
 @app.post("/predict/qg")
@@ -52,6 +53,7 @@ async def answer_extraction(data: ReqQGData):
     dto.task = QG_TAG
     dto.context = data.context
     dto.answer = data.answer
+    dto.num_return = data.num_return
     return question_answer_generation(dto)
 
 @app.post("/predict/qag")
@@ -59,6 +61,7 @@ async def answer_extraction(data: ReqQAGData):
     dto = ReqData()
     dto.task = QAG_TAG
     dto.context = data.context
+    dto.num_return = data.num_return
     return question_answer_generation(dto)
 
 @app.post("/predict/pipeline")
@@ -101,6 +104,7 @@ def question_answer_generation(data: ReqData):
         custom_config["num_return_sequences"] = data.num_return
 
         custom_config = argparse.Namespace(**custom_config)
+        print(custom_config)
         st = time.time()
         generated = generate(custom_config, device, qgmodel, t5_tokenizer, source_text)
         et = time.time()
