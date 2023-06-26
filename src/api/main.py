@@ -74,6 +74,7 @@ async def answer_extraction(data: ReqPipeData):
 
     answers = answer_text.split("<DIV>")
     answers = [x for x in answers if x != '']
+    answers = list(set(answers))
 
     result = []
     for answer in answers:
