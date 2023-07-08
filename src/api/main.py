@@ -13,11 +13,11 @@ import time
 app = FastAPI()
 
 class ReqData(BaseModel):
-    task: Optional[str]
-    context: Optional[str]
-    question: Optional[str]
-    answer: Optional[str]
-    num_return: Optional[int]
+    task: Optional[str] = None
+    context: Optional[str] = None
+    question: Optional[str] = None
+    answer: Optional[str] = None
+    num_return: Optional[int] = None
 
 class ReqAEData(BaseModel):
     context: str
@@ -66,6 +66,7 @@ async def answer_extraction(data: ReqQAGData):
 
 @app.post("/predict/pipeline")
 async def answer_extraction(data: ReqPipeData):
+    print("AE: " + str(data))
     dto1 = ReqData()
     dto1.task = AE_TAG
     dto1.context = data.context

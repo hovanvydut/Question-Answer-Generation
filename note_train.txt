@@ -28,7 +28,7 @@ cd question-generation-t5-pytorch-lightning/
 mkdir -p data/squad_vi/raw/dataframe
 mkdir model
 mkdir tokenizer
-scp -r -P 40243 -i /e/dev/config/key/id_rsa  /e/dev/uni/capstone/question-generation-t5-pytorch-lightning/data/squad_vi/raw/dataframe/ root@203.236.106.36:/home/vy/question-generation-t5-pytorch-lightning/data/squad_vi/raw/dataframe
+scp -r -P 40796 -i /e/dev/config/key/id_rsa  /e/dev/uni/capstone/question-generation-t5-pytorch-lightning/data/squad_vi/raw/dataframe/ root@75.191.38.75:/home/vy/question-generation-t5-pytorch-lightning/data/squad_vi/raw/dataframe
 
 scren -S train
 cd src/model_qg
@@ -63,6 +63,10 @@ pip install torch 0.13.1
 
 
 
-ssh -i /e/dev/config/key/id_rsa -p 40243 root@203.236.106.36 
-scp -r -P 40243 -i /e/dev/config/key/id_rsa  root@203.236.106.36:/home/vy/question-generation-t5-pytorch-lightning/checkpoints/qg_vi_mt5_base_qag_seed_42 /g/
-scp -r -P 40243 -i /e/dev/config/key/id_rsa  root@203.236.106.36:/home/vy/question-generation-t5-pytorch-lightning/tokenizer /g/
+ssh -i /e/dev/config/key/id_rsa -p 40796 root@75.191.38.75 
+scp -r -P 40796 -i /e/dev/config/key/id_rsa  root@75.191.38.75:/home/vy/question-generation-t5-pytorch-lightning/checkpoints/qg_vi_mt5_base_qag_seed_42 /g/
+scp -r -P 40796 -i /e/dev/config/key/id_rsa  root@75.191.38.75:/home/vy/question-generation-t5-pytorch-lightning/tokenizer /g/
+
+mkdir -p /home/vy
+pyenv virtualenv 3.9.9 capstone
+git clone https://github.com/hovanvydut/Question-Answer-Generation.git
