@@ -66,7 +66,7 @@ async def answer_extraction(data: ReqQAGData):
 
 @app.post("/predict/pipeline")
 async def answer_extraction(data: ReqPipeData):
-    print("AE: " + str(data))
+    print("pipeline: " + str(data))
     dto1 = ReqData()
     dto1.task = AE_TAG
     dto1.context = data.context
@@ -106,7 +106,6 @@ def question_answer_generation(data: ReqData):
         custom_config["num_return_sequences"] = data.num_return
 
         custom_config = argparse.Namespace(**custom_config)
-        print(custom_config)
         st = time.time()
         generated = generate(custom_config, device, qgmodel, t5_tokenizer, source_text)
         et = time.time()
